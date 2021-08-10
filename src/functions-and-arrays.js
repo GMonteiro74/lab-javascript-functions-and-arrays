@@ -1,41 +1,124 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+// Iteration #1: Find the maximum 
+function maxOfTwoNumbers(x, y) {
 
+    if (x > y) {
+      return x;
+    } 
+    
+    return y;
+    
+}
 
+console.log(maxOfTwoNumbers(12, 4));
 
-// Iteration #2: Find longest word
+// Iteration #2: Find longest word 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+    if (arr.length === 0) {
+      return null;
+    }
+    let longestWord = '';
+
+    arr.forEach(word => {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
+    }); 
+    return longestWord;
+    
+}
+
+console.log(findLongestWord(words)); 
 
 
 
-// Iteration #3: Calculate the sum
+// Iteration #3: Calculate the sum //PASSED
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+    let result = 0;
+    for (let i = 0; i < arr.length; i++) {
+      result += arr[i];
+    }
+    return result
+}
 
-
+console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+    let result = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'object') {
+        throw "Unsupported data type sir or ma'am";
+      }
+      if (typeof arr[i] === 'string'){
+        result += arr[i].length;
+      } else if (arr[i] === true) {
+        result++
+      } else {
+        result += arr[i];
+      }
+    }
+    return result;
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-
+console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+
+    if (arr.length === 0) {
+      return null;
+    }
+
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    
+    let average = sum / (arr.length);
+    return average;
+}
+
+console.log(averageNumbers(numbersAvg)); 
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+
+    if (arr.length === 0) {
+      return null;
+    }
+
+    let sum = 0;
+    arr.forEach(item => {
+        sum += item.length;
+    })
+    let average = sum / (arr.length);
+    return average;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+    if (arr.length === 0) {
+    return null;
+    }
+    let sumArr = sum(arr);
+    let average = sumArr / arr.length;
+    return Number(average.toFixed(2));
+}
+
+console.log(avg(mixedArr));
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +135,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let uniqueArr = [];
+  arr.forEach(word => {
+    if (!uniqueArr.includes(word))
+      uniqueArr.push(word);
+  });
+  return uniqueArr;
+  
+}
+
+console.log(uniquifyArray(wordsUnique));
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  if(arr.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+
+}
 
 
 
@@ -78,7 +186,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  let numWords = 0;
+  arr.forEach(item => {
+    if (item == word) {
+      numWords++;
+    }
+  })
+  return numWords;
+
+}
 
 
 
@@ -106,8 +227,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
+function greatestProduct() {
+    
+}
 
 
 
